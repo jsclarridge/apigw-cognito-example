@@ -26,7 +26,7 @@ var rootCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
-		coffee, err := api.CallAPI(
+		resp, err := api.CallAPI(
 			viper.GetString("appURL"),
 			accessToken,
 		)
@@ -34,7 +34,7 @@ var rootCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
-		fmt.Println(coffee)
+		fmt.Println(resp)
 
 	},
 }
