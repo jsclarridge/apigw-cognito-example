@@ -35,7 +35,6 @@ var rootCmd = &cobra.Command{
 		}
 
 		fmt.Println(resp)
-
 	},
 }
 
@@ -49,7 +48,6 @@ func Execute() {
 }
 
 func init() {
-	// cobra.OnInitialize(initConfig)
 	viper.AutomaticEnv() // read in environment variables that match
 	if err := viper.BindEnv("clientID", "CLIENT_ID"); err != nil {
 		log.Fatal(err)
