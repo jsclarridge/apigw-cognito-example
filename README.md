@@ -1,4 +1,4 @@
-# amazon-cognito-client
+# apigw-cognito-example
 
 An example using the client credential workflow with Amazon Cognito and API
 Gateway.
