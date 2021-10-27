@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/jsclarridge/amazon-cognito-client/internal/api"
-	"github.com/jsclarridge/amazon-cognito-client/internal/auth"
+	"github.com/jsclarridge/apigw-cognito-example/internal/api"
+	"github.com/jsclarridge/apigw-cognito-example/internal/auth"
 	"github.com/spf13/cobra"
 
 	"github.com/spf13/viper"

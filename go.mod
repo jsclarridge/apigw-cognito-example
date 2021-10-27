@@ -1,4 +1,4 @@
-module github.com/jsclarridge/amazon-cognito-client
+module github.com/jsclarridge/apigw-cognito-example
 
 go 1.17
 
