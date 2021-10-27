@@ -4,14 +4,14 @@ help: ## Print the help documentation
 
 .PHONY: envrc_local
 envrc_local: ## Initialize .envrc.local file
-	cp .envrc.local.template .envrc.local
+	@cp .envrc.local.template .envrc.local
 
 .PHONY: build
 build: ## Build the binary
-	go build -o bin/callapi main.go
+	@go build -o bin/callapi main.go
 
 .PHONY: run
-run: build ## Run the app
-	./bin/callapi
+run: ## Run the app
+	@./bin/callapi
 
 default: help
