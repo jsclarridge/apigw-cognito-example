@@ -1,40 +1,40 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 
-	"github.com/jsclarridge/apigw-cognito-example/internal/api"
-	"github.com/jsclarridge/apigw-cognito-example/internal/auth"
 	"github.com/spf13/cobra"
-
 	"github.com/spf13/viper"
+	"golang.org/x/oauth2/clientcredentials"
 )
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use: "apigw-cognito-example",
 	Run: func(cmd *cobra.Command, args []string) {
-		accessToken, err := auth.GetAccessToken(
-			viper.GetString("tokenEndpoint"),
-			viper.GetString("clientID"),
-			viper.GetString("clientSecret"),
-			"",
-		)
+		config := &clientcredentials.Config{
+			ClientID:     viper.GetString("clientID"),
+			ClientSecret: viper.GetString("clientSecret"),
+			TokenURL:     viper.GetString("tokenEndpoint"),
+			Scopes:       []string{viper.GetString("scope")},
+		}
+		ctx := context.Background()
+		client := config.Client(ctx)
+		resp, err := client.Get(viper.GetString("appURL"))
 		if err != nil {
 			log.Fatal(err)
 		}
+		defer resp.Body.Close()
 
-		resp, err := api.CallAPI(
-			viper.GetString("appURL"),
-			accessToken,
-		)
+		body, err := ioutil.ReadAll(resp.Body)
 		if err != nil {
 			log.Fatal(err)
 		}
-
-		fmt.Println(resp)
+		fmt.Printf("%s\n", body)
 	},
 }
 
