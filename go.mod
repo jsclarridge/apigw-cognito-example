@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/spf13/cobra v1.3.0
-	github.com/spf13/viper v1.10.0
+	github.com/spf13/viper v1.10.1
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
 )
 
@@ -22,7 +22,7 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
 	golang.org/x/net v0.0.0-20210813160813-60bc85c4be6d // indirect
-	golang.org/x/sys v0.0.0-20211205182925-97ca703d548d // indirect
+	golang.org/x/sys v0.0.0-20211210111614-af8b64212486 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
