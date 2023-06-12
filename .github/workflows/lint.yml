@@ -6,6 +6,11 @@ on:
       - main
   pull_request:
 
+# Cancel redundant builds on same branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
     runs-on: ubuntu-latest
