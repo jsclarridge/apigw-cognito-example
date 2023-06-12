@@ -6,6 +6,12 @@ help: ## Print the help documentation
 envrc_local: ## Initialize .envrc.local file
 	@cp .envrc.local.template .envrc.local
 
+pre-commit-install: ## Install pre-commit
+	pip install pre-commit
+
+lint: ## Run lint check
+	pre-commit run --all-files
+
 .PHONY: build
 build: ## Build the binary
 	@go build -o bin/callapi main.go
